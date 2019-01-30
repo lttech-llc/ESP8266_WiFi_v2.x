@@ -91,14 +91,17 @@ create_rapi_json() {
   url += String(emoncms_node) + "&json={";
   data += "\"amp\":" + String(amp) + ",";
   if (volt > 0) {
-    data += "volt:" + String(volt) + ",";
+    data += "\"volt\":" + String(volt) + ",";
   }
+  data += "\"ws\":" + String(wattsec) + ",";
   data += "\"wh\":" + String(watthour_total) + ",";
   data += "\"temp1\":" + String(temp1) + ",";
   data += "\"temp2\":" + String(temp2) + ",";
   data += "\"temp3\":" + String(temp3) + ",";
   data += "\"pilot\":" + String(pilot) + ",";
   data += "\"state\":" + String(state) + ",";
+  data += "\"elapsed\":" + String(elapsed) + ",";
+  data += "\"rssi\":" + String(WiFi.RSSI()) + ",";
   data += "\"freeram\":" + String(ESP.getFreeHeap()) + ",";
   data += "\"divertmode\":" + String(divertmode);
   url += data;
